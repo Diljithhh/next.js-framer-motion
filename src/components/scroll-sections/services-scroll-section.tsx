@@ -94,7 +94,7 @@ const ServicesScrollSection = () => {
                 Empower your team with intelligent AI assistants that understand your business and provide instant, accurate support 24/7.
               </p>
             </motion.div>
-            <div className="h-80"></div>
+            <div className="h-20"></div>
           </div>
 
         </div>

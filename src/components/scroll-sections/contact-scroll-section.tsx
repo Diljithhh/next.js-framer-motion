@@ -5,7 +5,7 @@ import { useState } from "react"
 import { Mail, Phone, MapPin, Send, Clock, MessageCircle } from "lucide-react"
 import { ElegantShape } from "@/components/ui/elegant-shape"
 import { cn } from "@/lib/utils"
-import emailjs from "emailjs-com"
+
 
 const contactInfo = [
   {
@@ -30,22 +30,28 @@ const ContactScrollSection = () => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // EmailJS configuration - replace with your actual values
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID"
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID"
-    const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID || "YOUR_USER_ID"
+    // Simple mailto approach - opens user's email client
+    const subject = encodeURIComponent(`Contact Form - ${formData.name}`)
+    const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company}
 
-    emailjs
-      .send(serviceId, templateId, formData, userId)
-      .then(() => {
-        alert("Message sent successfully!")
-        setFormData({ name: "", email: "", company: "", message: "" })
-      })
-      .catch((err) => {
-        console.error(err)
-        alert("Failed to send message.")
-      })
-      .finally(() => setIsSubmitting(false))
+Message:
+${formData.message}
+    `)
+
+    const mailtoLink = `mailto:diljithv7@gmail.com?subject=${subject}&body=${body}`
+
+    // Open user's email client
+    window.open(mailtoLink, '_blank')
+
+    // Reset form after short delay
+    setTimeout(() => {
+      setFormData({ name: "", email: "", company: "", message: "" })
+      setIsSubmitting(false)
+      alert("Email client opened! Please send the email to complete your message.")
+    }, 1000)
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -123,7 +129,7 @@ const ContactScrollSection = () => {
               <MessageCircle className="w-4 h-4 text-indigo-400" />
               <span className="text-sm text-white/60 tracking-wide">Get In Touch</span>
             </motion.div>
-
+            <div className="h-20"></div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-center">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
                 Send us a message

@@ -23,6 +23,7 @@ const HeroScrollSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-32 pb-40">
+      + <section id="home" className="relative min-h-screen overflow-hidden bg-black py-32 md:py-40"></section>
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
 
@@ -118,35 +119,39 @@ const HeroScrollSection = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <p className="text-lg sm:text-xl md:text-2xl text-white/60 mb-12 md:mb-16 text-center font-light tracking-wide max-w-3xl mx-auto ">
-              Transform your business operations with cutting-edge AI automation.
+            <p className="text-lg sm:text-xl md:text-2xl text-white/60 mb-12 md:mb-16 text-center font-light tracking-wide max-w-3xl mx-center ">
+              Transform your business operations with cutting-edge AI automation Streamline workflows and  boost productivity.
 
             </p>
             {/* <div className="h-20"></div> */}
-            <p className="text-lg sm:text-xl md:text-2xl text-white/60 mb-12 md:mb-16 text-center leading-relaxed font-light tracking-wide max-w-3xl mx-auto">
-              Streamline workflows and  boost productivity.
-            </p>
-          </motion.div>
 
-          <motion.div
-            custom={3}
-            variants={fadeUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex justify-center items-center"
-          >
-            <motion.a
-              href="#services"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-white border-2 border-white/30 px-10 py-4 rounded-xl font-semibold text-lg hover:bg-transparent hover:border-white/50 transition-all duration-300 backdrop-blur-sm bg-transparent"
-            >
-              Explore Services
-            </motion.a>
           </motion.div>
+          <div className="h-20"></div>
+
+          <motion.a
+  href="#services"
+  whileHover={{ scale: 1.05, y: -2 }}
+  whileTap={{ scale: 0.95 }}
+  className="
+    inline-flex items-center justify-center
+    /* ⬇️ more breathing room */
+    px-28   /* horizontal padding  */
+    py-5    /* vertical padding    */
+
+    rounded-xl font-semibold text-lg text-white
+
+    border-2 border-transparent  hover:border-white/80
+    bg-transparent hover:bg-transparent
+    transition-all duration-300
+  "
+>
+  Explore Services
+</motion.a>
+
+
         </div>
       </div>
+
 
             {/* Floating Paths Background Animation */}
       <motion.div
