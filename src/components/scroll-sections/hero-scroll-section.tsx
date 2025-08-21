@@ -128,25 +128,33 @@ const HeroScrollSection = () => {
           </motion.div>
           <div className="h-20"></div>
 
-          <motion.a
-  href="#services"
-  whileHover={{ scale: 1.05, y: -2 }}
-  whileTap={{ scale: 0.95 }}
-  className="
-    inline-flex items-center justify-center
-    /* ⬇️ more breathing room */
-    px-28   /* horizontal padding  */
-    py-5    /* vertical padding    */
+          <motion.div
+            custom={3}
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.a
+              href="#services"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="
+                inline-flex items-center justify-center
+                /* ⬇️ more breathing room */
+                px-28   /* horizontal padding  */
+                py-5    /* vertical padding    */
 
-    rounded-xl font-semibold text-lg text-white
+                rounded-xl font-semibold text-lg text-white
 
-    border-2 border-transparent  hover:border-white/80
-    bg-transparent hover:bg-transparent
-    transition-all duration-300
-  "
->
-  Explore Services
-</motion.a>
+                border-2 border-transparent  hover:border-white/80
+                bg-transparent hover:bg-transparent
+                transition-all duration-300
+              "
+            >
+              Explore Services
+            </motion.a>
+          </motion.div>
 
 
         </div>
