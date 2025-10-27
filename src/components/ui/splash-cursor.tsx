@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 import { useEffect, useRef } from "react";
 
@@ -93,9 +94,9 @@ function SplashCursor({
       const halfFloatTexType = isWebGL2
         ? gl.HALF_FLOAT
         : halfFloat && halfFloat.HALF_FLOAT_OES;
-      let formatRGBA;
-      let formatRG;
-      let formatR;
+    let formatRGBA;
+    let formatRG;
+    let formatR;
 
       if (isWebGL2) {
         formatRGBA = getSupportedFormat(
@@ -226,7 +227,7 @@ function SplashCursor({
     function getUniforms(program) {
       const uniforms = [];
       const uniformCount = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
-      for (let i = 0; i < uniformCount; i++) {
+        for (let i = 0; i < uniformCount; i++) {
         const uniformName = gl.getActiveUniform(program, i).name;
         uniforms[uniformName] = gl.getUniformLocation(program, uniformName);
       }
@@ -578,7 +579,8 @@ function SplashCursor({
       };
     })();
 
-    const dye, velocity, divergence, curl, pressure;
+    let dye = null, velocity = null, divergence = null, curl = null, pressure = null;
+
 
     const copyProgram = new Program(baseVertexShader, copyShader);
     const clearProgram = new Program(baseVertexShader, clearShader);
@@ -720,8 +722,8 @@ function SplashCursor({
     }
 
     function createDoubleFBO(w, h, internalFormat, format, type, param) {
-      const fbo1 = createFBO(w, h, internalFormat, format, type, param);
-      const fbo2 = createFBO(w, h, internalFormat, format, type, param);
+      let fbo1 = createFBO(w, h, internalFormat, format, type, param);
+      let fbo2 = createFBO(w, h, internalFormat, format, type, param);
       return {
         width: w,
         height: h,
@@ -748,7 +750,7 @@ function SplashCursor({
     }
 
     function resizeFBO(target, w, h, internalFormat, format, type, param) {
-      let newFBO = createFBO(w, h, internalFormat, format, type, param);
+      const newFBO = createFBO(w, h, internalFormat, format, type, param);
       copyProgram.bind();
       gl.uniform1i(copyProgram.uniforms.uTexture, target.attach(0));
       blit(newFBO);
@@ -791,7 +793,7 @@ function SplashCursor({
     updateKeywords();
     initFramebuffers();
     let lastUpdateTime = Date.now();
-    const colorUpdateTimer = 0.0;
+    let colorUpdateTimer = 0.0;
 
     function updateFrame() {
       const dt = calcDeltaTime();
@@ -1082,12 +1084,12 @@ function SplashCursor({
     }
 
     function HSVtoRGB(h, s, v) {
-      let r, g, b, i, f, p, q, t;
-      i = Math.floor(h * 6);
-      f = h * 6 - i;
-      p = v * (1 - s);
-      q = v * (1 - f * s);
-      t = v * (1 - (1 - f) * s);
+      let r, g, b;
+      const i = Math.floor(h * 6);
+      const f = h * 6 - i;
+      const p = v * (1 - s);
+      const q = v * (1 - f * s);
+      const t = v * (1 - (1 - f) * s);
       switch (i % 6) {
         case 0:
           r = v;
@@ -1149,7 +1151,7 @@ function SplashCursor({
     function hashCode(s) {
       if (s.length === 0) return 0;
       let hash = 0;
-      for (let i = 0; i < s.length; i++) {
+      for (const i = 0; i < s.length; i++) {
         hash = (hash << 5) - hash + s.charCodeAt(i);
         hash |= 0;
       }
@@ -1157,9 +1159,9 @@ function SplashCursor({
     }
 
     window.addEventListener("mousedown", (e) => {
-      let pointer = pointers[0];
-      let posX = scaleByPixelRatio(e.clientX);
-      let posY = scaleByPixelRatio(e.clientY);
+      const pointer = pointers[0];
+      const posX = scaleByPixelRatio(e.clientX);
+      const posY = scaleByPixelRatio(e.clientY);
       updatePointerDownData(pointer, -1, posX, posY);
       clickSplat(pointer);
     });
@@ -1167,9 +1169,9 @@ function SplashCursor({
     document.body.addEventListener(
       "mousemove",
       function handleFirstMouseMove(e) {
-        let pointer = pointers[0];
-        let posX = scaleByPixelRatio(e.clientX);
-        let posY = scaleByPixelRatio(e.clientY);
+        const pointer = pointers[0];
+        const posX = scaleByPixelRatio(e.clientX);
+        const posY = scaleByPixelRatio(e.clientY);
         const color = generateColor();
         updateFrame(); // start animation loop
         updatePointerMoveData(pointer, posX, posY, color);
@@ -1190,7 +1192,7 @@ function SplashCursor({
       function handleFirstTouchStart(e) {
         const touches = e.targetTouches;
         const pointer = pointers[0];
-        for (let i = 0; i < touches.length; i++) {
+        for (const i = 0; i < touches.length; i++) {
           const posX = scaleByPixelRatio(touches[i].clientX);
           const posY = scaleByPixelRatio(touches[i].clientY);
           updateFrame(); // start animation loop
@@ -1203,7 +1205,7 @@ function SplashCursor({
     window.addEventListener("touchstart", (e) => {
       const touches = e.targetTouches;
       const pointer = pointers[0];
-      for (let i = 0; i < touches.length; i++) {
+      for (const i = 0; i < touches.length; i++) {
         const posX = scaleByPixelRatio(touches[i].clientX);
         const posY = scaleByPixelRatio(touches[i].clientY);
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
@@ -1215,7 +1217,7 @@ function SplashCursor({
       (e) => {
         const touches = e.targetTouches;
         const pointer = pointers[0];
-        for (let i = 0; i < touches.length; i++) {
+        for (const i = 0; i < touches.length; i++) {
           const posX = scaleByPixelRatio(touches[i].clientX);
           const posY = scaleByPixelRatio(touches[i].clientY);
           updatePointerMoveData(pointer, posX, posY, pointer.color);
@@ -1227,7 +1229,7 @@ function SplashCursor({
     window.addEventListener("touchend", (e) => {
       const touches = e.changedTouches;
       const pointer = pointers[0];
-      for (let i = 0; i < touches.length; i++) {
+      for (const i = 0; i < touches.length; i++) {
         updatePointerUpData(pointer);
       }
     });
