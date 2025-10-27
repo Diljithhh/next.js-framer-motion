@@ -59,7 +59,7 @@ const GeometricNavigation = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-f          className="flex items-center"
+          className="flex items-center"
         >
           <motion.div
             className="relative w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500/20 to-rose-500/20 border border-white/20 flex items-center justify-center backdrop-blur-sm"
