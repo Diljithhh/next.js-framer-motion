@@ -9,14 +9,15 @@ const GeometricNavigation = () => {
 
   const navigationItems = [
     { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
     { name: "About", href: "#about" },
+    { name: "My Stack", href: "#stack" },
+    { name: "Experience", href: "#experience" },
     { name: "Contact", href: "#contact" },
   ]
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "services", "about", "contact"]
+      const sections = ["home", "about", "stack", "experience", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -58,14 +59,14 @@ const GeometricNavigation = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="flex items-center space-x-3"
+f          className="flex items-center"
         >
           <motion.div
             className="relative w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500/20 to-rose-500/20 border border-white/20 flex items-center justify-center backdrop-blur-sm"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <span className="text-white font-bold text-lg bg-gradient-to-r from-indigo-300 to-rose-300 bg-clip-text text-transparent">X</span>
+            <span className="text-white font-bold text-lg bg-gradient-to-r from-indigo-300 to-rose-300 bg-clip-text text-transparent">D</span>
             {/* Floating mini shapes */}
             <motion.div
               className="absolute -top-1 -right-1 w-2 h-2 bg-indigo-400/60 rounded-full"
@@ -78,7 +79,7 @@ const GeometricNavigation = () => {
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             />
           </motion.div>
-          <span className="text-white font-bold text-xl bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">XTRACT</span>
+          <span className="text-white font-bold text-xl bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">DILJITH</span>
         </motion.div>
 
         {/* Navigation Items */}

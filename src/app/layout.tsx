@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Xtract AI Agency - Intelligent Automation for Modern Businesses",
-  description: "Transform your business operations with cutting-edge AI automation. Streamline workflows, boost productivity, and unlock unprecedented growth.",
+  title: "Diljith V D - Full Stack Developer | AI & Cloud Specialist",
+  description: "Experienced Full Stack Developer specializing in Flutter, FastAPI, AI integrations, and cloud deployments. Building intelligent, scalable solutions.",
 };
 
 export default function RootLayout({

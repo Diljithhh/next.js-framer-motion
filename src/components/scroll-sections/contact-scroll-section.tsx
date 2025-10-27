@@ -2,20 +2,10 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { Mail, Phone, MapPin, Send, Clock, MessageCircle } from "lucide-react"
+import { MessageCircle } from "lucide-react"
 import { ElegantShape } from "@/components/ui/elegant-shape"
-import { cn } from "@/lib/utils"
 
 
-const contactInfo = [
-  {
-    icon: Mail,
-    title: "Email Us",
-    content: "diljithv7@gmail.com",
-    description: "Get in touch via email",
-    gradient: "from-indigo-500/20 to-purple-500/20"
-  }
-]
 
 const ContactScrollSection = () => {
   const [formData, setFormData] = useState({
@@ -26,7 +16,7 @@ const ContactScrollSection = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-    const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
@@ -61,28 +51,7 @@ ${formData.message}
     })
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
-  }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.4, 0.25, 1] as const,
-      },
-    },
-  }
 
   return (
     <section id="contact" className="relative min-h-screen py-32 md:py-40 overflow-hidden mt-32">
@@ -129,13 +98,14 @@ ${formData.message}
               <MessageCircle className="w-4 h-4 text-indigo-400" />
               <span className="text-sm text-white/60 tracking-wide">Get In Touch</span>
             </motion.div>
-            <div className="h-20"></div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-center">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
-                Send us a message
+                Let&apos;s Connect
               </span>
             </h2>
           </motion.div>
+
+
 
           {/* Contact Info Cards
           <motion.div
@@ -179,95 +149,102 @@ ${formData.message}
             })}
           </motion.div> */}
 
-          <div className="h-20"></div>
-          <div className="flex justify-center px-6 md:px-12 py-16">
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.8, delay: 0.5 }}
-    className="relative max-w-2xl w-full"
-  >
-    <div className="relative p-10 md:p-14 rounded-2xl border border-white/[0.08] backdrop-blur-sm bg-gradient-to-br from-white/[0.02] to-transparent shadow-lg">
+          {/* Contact Form Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex justify-center px-6 md:px-8 lg:px-12"
+          >
+            <div className="w-full max-w-2xl">
+              <div className="relative p-12 md:p-16 rounded-3xl border border-white/[0.08] backdrop-blur-sm bg-gradient-to-br from-white/[0.03] to-white/[0.01] shadow-2xl hover:border-white/[0.12] transition-all duration-500">
 
-      <form onSubmit={handleSubmit} className="space-y-8">
-        {/* First Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Name */}
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-white/80 ml-1">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              required
-              className="w-full px-4 py-3 rounded-lg bg-white/[0.05] border border-white/[0.1] text-white placeholder-white/50 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/20 transition-all duration-300"
-              placeholder="Your name"
-            />
-          </div>
+                {/* Form Header */}
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Send me a message</h3>
+                  <p className="text-white/60 text-sm md:text-base">I&apos;d love to hear about your project</p>
+                </div>
+                <form onSubmit={handleSubmit} className="space-y-6 mx-4 md:mx-8">
+                  {/* First Row */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          {/* Email */}
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-white/80 ml-1">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              required
-              className="w-full px-4 py-3 rounded-lg bg-white/[0.05] border border-white/[0.1] text-white placeholder-white/50 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/20 transition-all duration-300"
-              placeholder="your@email.com"
-            />
-          </div>
-        </div>
+                    {/* Name */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-white/80 ml-1">Name</label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.1] text-white placeholder-white/50 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/20 transition-all duration-300 hover:border-white/[0.15]"
+                        placeholder="Your name"
+                      />
+                    </div>
 
-        {/* Company */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-white/80 ml-1">Company</label>
-          <input
-            type="text"
-            name="company"
-            value={formData.company}
-            onChange={handleInputChange}
-            className="w-full px-4 py-3 rounded-lg bg-white/[0.05] border border-white/[0.1] text-white placeholder-white/50 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/20 transition-all duration-300"
-            placeholder="Your company"
-          />
-        </div>
-
-        {/* Message */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-white/80 ml-1">Message</label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleInputChange}
-            required
-            rows={5}
-            className="w-full px-4 py-3 rounded-lg bg-white/[0.05] border border-white/[0.1] text-white placeholder-white/50 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/20 transition-all duration-300 resize-none"
-            placeholder="Tell us about your automation needs..."
-          />
-        </div>
-
-        {/* Submit Button */}
-        <motion.button
-          type="submit"
-          disabled={isSubmitting}
-          whileHover={{ scale: 1.02, y: -1 }}
-          whileTap={{ scale: 0.98 }}
-          className="group relative w-full px-6 py-4 rounded-xl font-semibold text-lg overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-rose-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
-          <span className="relative text-white flex items-center justify-center gap-2">
-            {isSubmitting ? "Sending..." : "Send Message"}
-          </span>
-        </motion.button>
-      </form>
-    </div>
-  </motion.div>
+                    {/* Email */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-white/80 ml-1">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.1] text-white placeholder-white/50 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/20 transition-all duration-300 hover:border-white/[0.15]"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
 
 
-          </div>
+                  {/* Company */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-white/80 ml-1">Company</label>
+                    <input
+                      type="text"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg bg-white/[0.05] border border-white/[0.1] text-white placeholder-white/50 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/20 transition-all duration-300"
+                      placeholder="Your company"
+                    />
+                  </div>
+
+                  {/* Message */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-white/80 ml-1">Message</label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={5}
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.05] border border-white/[0.1] text-white placeholder-white/50 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/20 transition-all duration-300 hover:border-white/[0.15] resize-none"
+                      placeholder="Tell us about your automation needs..."
+                    />
+                  </div>
+
+
+                  {/* Submit Button */}
+                  <motion.button
+                    type="submit"
+                    disabled={isSubmitting}
+                    whileHover={{ scale: 1.02, y: -1 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative w-full px-6 py-4 rounded-xl font-semibold text-lg overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+
+                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-rose-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="relative text-white flex items-center justify-center gap-2">
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </span>
+                  </motion.button>
+                </form>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
