@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 import { Circle } from "lucide-react"
 import { ElegantShape } from "@/components/ui/elegant-shape"
-import { FloatingPathsBackground } from "@/components/ui/floating-paths-background"
 import { cn } from "@/lib/utils"
 
 
@@ -16,16 +15,42 @@ const HeroScrollSection = () => {
       transition: {
         duration: 1,
         delay: 0.5 + i * 0.2,
-        ease: [0.25, 0.4, 0.25, 1] as  [number, number, number, number],
+        ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
       },
     }),
   }
 
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-32 pb-40">
-      + <section id="home" className="relative min-h-screen overflow-hidden bg-black py-32 md:py-40"></section>
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px]" />
+
+        {/* Animated Dots */}
+        {[...Array(50)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-white/20 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              opacity: [0.2, 0.8, 0.2],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: Math.random() * 3 + 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+
+        {/* Purple Glow Effect */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-purple-600/20 rounded-full blur-[120px]" />
+      </div>
 
       {/* Floating shapes */}
       <div className="absolute inset-0 overflow-hidden">
@@ -76,7 +101,7 @@ const HeroScrollSection = () => {
       </div>
 
       <div className="relative z-10 w-full flex flex-col items-center px-6 md:px-12">
-        <div className="max-w-6xl text-center">
+        <div className="max-w-6xl w-full text-center">
           <motion.div
             custom={0}
             variants={fadeUpVariants}
@@ -87,10 +112,18 @@ const HeroScrollSection = () => {
           >
             <Circle className="h-2 w-2 fill-rose-500/80" />
             <span className="text-sm text-white/60 tracking-wide">
-              Xtract AI Agency
+              Available for Opportunities
             </span>
           </motion.div>
-
+          <motion.div
+            custom={0.5}
+            variants={fadeUpVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="h-8 md:h-12"
+          />
+          {/* Main heading without the curious text: */}
           <motion.div
             custom={1}
             variants={fadeUpVariants}
@@ -98,82 +131,44 @@ const HeroScrollSection = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 md:mb-12 tracking-tight leading-[1.1] text-center w-full flex flex-col items-center justify-center">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6 tracking-tight leading-[1.1] text-center w-full flex flex-col items-center justify-center">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80 block text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                Hi 👋
+              </span>
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80 block text-center">
-                Intelligent Automation
+                I m Diljith
+              </span>
+
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80 block text-center text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium">
+                a 🕵🏻‍♂️ curious
               </span>
               <span
                 className={cn(
                   "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 block text-center"
                 )}
               >
-                for Modern Businesses
+                Software Developer
               </span>
             </h1>
           </motion.div>
 
+
           <motion.div
-            custom={2}
+            custom={0.5}
             variants={fadeUpVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-          >
-            <p className="text-lg sm:text-xl md:text-2xl text-white/60 mb-12 md:mb-16 text-center font-light tracking-wide max-w-3xl mx-center ">
-              Transform your business operations with cutting-edge AI automation Streamline workflows and  boost productivity.
-
-            </p>
-            {/* <div className="h-20"></div> */}
-
-          </motion.div>
+            className="h-8 md:h-12"
+          />
           <div className="h-20"></div>
 
-          <motion.div
-            custom={3}
-            variants={fadeUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.a
-              href="#services"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="
-                inline-flex items-center justify-center
-                /* ⬇️ more breathing room */
-                px-28   /* horizontal padding  */
-                py-5    /* vertical padding    */
-
-                rounded-xl font-semibold text-lg text-white
-
-                border-2 border-transparent  hover:border-white/80
-                bg-transparent hover:bg-transparent
-                transition-all duration-300
-              "
-            >
-              Explore Services
-            </motion.a>
-          </motion.div>
 
 
         </div>
       </div>
 
 
-            {/* Floating Paths Background Animation */}
-      <motion.div
-        custom={4}
-        variants={fadeUpVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="absolute inset-0 pointer-events-none"
-      >
-        <FloatingPathsBackground
-          className="w-full h-full opacity-20 hover:opacity-30 transition-opacity duration-500"
-        />
-      </motion.div>
       <div className="h-20"></div>
 
       {/* Bottom gradient fade */}
