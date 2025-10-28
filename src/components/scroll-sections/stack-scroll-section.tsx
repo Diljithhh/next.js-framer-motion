@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Code, Database, Cloud, Rocket, Monitor, Star, Zap, Shield, Globe } from "lucide-react"
+import { Code, Star, Shield } from "lucide-react"
 import { ElegantShape } from "@/components/ui/elegant-shape"
 
 const StackScrollSection = () => {
@@ -88,7 +88,7 @@ const StackScrollSection = () => {
             viewport={{ once: true }}
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto"
           >
-            {techStack.map((tech, index) => (
+            {techStack.map((tech) => (
               <motion.div
                 key={tech.name}
                 variants={item}

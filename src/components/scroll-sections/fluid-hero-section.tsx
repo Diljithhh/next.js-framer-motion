@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Circle } from "lucide-react"
-import { SplashCursor } from "@/components/ui/splash-cursor"
+// import { SplashCursor } from "@/components/ui/splash-cursor"
 import { cn } from "@/lib/utils"
 
 const FluidHeroSection = () => {
@@ -22,7 +22,7 @@ const FluidHeroSection = () => {
     return (
         <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
             {/* Fluid Background */}
-            <SplashCursor
+            {/* <SplashCursor
                 SIM_RESOLUTION={128}
                 DYE_RESOLUTION={1440}
                 DENSITY_DISSIPATION={3.5}
@@ -36,7 +36,7 @@ const FluidHeroSection = () => {
                 COLOR_UPDATE_SPEED={10}
                 BACK_COLOR={{ r: 0, g: 0, b: 0 }}
                 TRANSPARENT={true}
-            />
+            /> */}
 
             {/* Content Overlay */}
             <div className="relative z-10 w-full flex flex-col items-center px-6 md:px-12">
