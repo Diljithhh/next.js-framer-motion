@@ -150,13 +150,8 @@ ${formData.message}
           </motion.div> */}
 
           {/* Contact Form Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex justify-center px-6 md:px-8 lg:px-12"
-          >
+          {/* Contact Form Section - No Animation */}
+          <div className="flex justify-center px-6 md:px-8 lg:px-12">
             <div className="w-full max-w-2xl">
               <div className="relative p-12 md:p-16 rounded-3xl border border-white/[0.08] backdrop-blur-sm bg-gradient-to-br from-white/[0.03] to-white/[0.01] shadow-2xl hover:border-white/[0.12] transition-all duration-500">
 
@@ -198,7 +193,6 @@ ${formData.message}
                     </div>
                   </div>
 
-
                   {/* Company */}
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-white/80 ml-1">Company</label>
@@ -226,25 +220,21 @@ ${formData.message}
                     />
                   </div>
 
-
                   {/* Submit Button */}
-                  <motion.button
+                  {/* Submit Button - No Animation */}
+                  <button
                     type="submit"
                     disabled={isSubmitting}
-                    whileHover={{ scale: 1.02, y: -1 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group relative w-full px-6 py-4 rounded-xl font-semibold text-lg overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="group relative w-full px-6 py-4 rounded-xl font-semibold text-lg overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed bg-gradient-to-r from-indigo-500 to-rose-500 opacity-90 hover:opacity-100 transition-opacity duration-300"
                   >
-
-                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-rose-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
                     <span className="relative text-white flex items-center justify-center gap-2">
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </span>
-                  </motion.button>
+                  </button>
                 </form>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

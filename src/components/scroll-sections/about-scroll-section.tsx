@@ -128,7 +128,7 @@ const AboutScrollSection = () => {
 
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             custom={0.5}
             variants={fadeUpVariants}
             initial="hidden"
@@ -136,7 +136,7 @@ const AboutScrollSection = () => {
             viewport={{ once: true }}
             className="h-8 md:h-12"
           />
-          <div className="h-20"></div>
+          <div className="h-20"></div> */}
 
         </div>
       </div>
