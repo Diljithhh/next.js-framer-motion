@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Diljith V D - Full Stack Developer | AI & Cloud Specialist",
   description: "Experienced Full Stack Developer specializing in Flutter, FastAPI, AI integrations, and cloud deployments. Building intelligent, scalable solutions.",
+  verification: {
+    google: "BzTzpm3G00G8eFY34qGH8WbFb4reMfLNt0e1VpyMqek",
+  },
 };
 
 export default function RootLayout({
