@@ -34,14 +34,14 @@ ${formData.message}
     const mailtoLink = `mailto:diljithv7@gmail.com?subject=${subject}&body=${body}`
 
     // Open user's email client
-    window.open(mailtoLink, '_blank')
+    // window.open(mailtoLink, '_blank')
+    window.location.href = mailtoLink
 
     // Reset form after short delay
     setTimeout(() => {
       setFormData({ name: "", email: "", company: "", message: "" })
       setIsSubmitting(false)
-      alert("Email client opened! Please send the email to complete your message.")
-    }, 1000)
+    }, 500)
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -54,7 +54,7 @@ ${formData.message}
 
 
   return (
-    <section id="contact" className="relative min-h-screen py-32 md:py-40 overflow-hidden mt-32">
+    <section id="contact" className="relative min-h-screen py-32 md:py-40 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.03] via-transparent to-rose-500/[0.03]" />
@@ -86,7 +86,7 @@ ${formData.message}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center mb-20 md:mb-24"
+            className="text-center mb-12 md:mb-16"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}

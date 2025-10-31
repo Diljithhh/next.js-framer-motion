@@ -141,7 +141,7 @@ const AboutPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center mb-20"
+            className="text-center mb-12 md:mb-16"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -174,7 +174,7 @@ const AboutPage = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 md:mb-16"
           >
             {stats.map((stat, index) => {
               const IconComponent = stat.icon
@@ -211,7 +211,7 @@ const AboutPage = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="max-w-4xl mx-auto text-center mb-20"
+            className="max-w-4xl mx-auto text-center mb-12 md:mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-8">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 to-rose-300">
@@ -230,7 +230,7 @@ const AboutPage = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 md:mb-16"
           >
             {values.map((value) => {
               const IconComponent = value.icon

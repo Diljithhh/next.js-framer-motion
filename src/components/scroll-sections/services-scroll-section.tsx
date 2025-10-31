@@ -16,7 +16,7 @@ const ServicesScrollSection = () => {
       <div className="relative z-10 w-full flex flex-col items-center px-6 md:px-12">
         <div className="max-w-6xl text-center space-y-32">
           {/* Header Section */}
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -27,7 +27,7 @@ const ServicesScrollSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-16"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-16 mx-auto"
             >
               <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse" />
               <span className="text-sm text-white/60 tracking-wide">Our Services</span>
@@ -42,14 +42,11 @@ const ServicesScrollSection = () => {
               </span>
             </h2>
           </motion.div>
-          <div className="h-20"></div>
-
 
           {/* Services Container */}
           <div className="w-full space-y-24 md:space-y-32">
 
             {/* Business Data Analytics using PowerBI */}
-
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -57,13 +54,11 @@ const ServicesScrollSection = () => {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="max-w-4xl mx-auto space-y-12"
             >
-
               <h3 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 to-white">Business Data Analytics using PowerBI</h3>
               <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
                 Transform raw data into actionable insights with stunning PowerBI dashboards that drive smarter business decisions.
               </p>
             </motion.div>
-            <div className="h-20"></div>
 
             {/* Workflow Automation */}
             <motion.div
@@ -78,8 +73,6 @@ const ServicesScrollSection = () => {
                 Streamline operations and eliminate repetitive tasks with intelligent automation solutions that scale with your business.
               </p>
             </motion.div>
-            <div className="h-20"></div>
-
 
             {/* AI Assistant */}
             <motion.div
@@ -94,7 +87,6 @@ const ServicesScrollSection = () => {
                 Empower your team with intelligent AI assistants that understand your business and provide instant, accurate support 24/7.
               </p>
             </motion.div>
-            <div className="h-20"></div>
           </div>
 
         </div>
