@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 const GeometricNavigation = () => {
@@ -112,6 +113,24 @@ const GeometricNavigation = () => {
               </motion.div>
             )
           })}
+
+          {/* Blog Link */}
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.1 * navigationItems.length + 0.5, duration: 0.4 }}
+            className="relative"
+          >
+            <Link
+              href="/blog"
+              className={cn(
+                "relative px-4 py-2 rounded-lg font-medium transition-all duration-300 text-sm",
+                "text-white/70 hover:text-white hover:bg-white/[0.05]"
+              )}
+            >
+              Blog
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </motion.nav>

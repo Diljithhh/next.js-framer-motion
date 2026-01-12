@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://diljithh.vercel.app/sitemap.xml

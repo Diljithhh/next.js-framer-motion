@@ -16,11 +16,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://diljithh.vercel.app'),
   title: "Diljith — Full Stack & Flutter Developer",
   description: "Portfolio of Diljith, full-stack and Flutter developer specializing in mobile apps, AI tools, and digital products.",
   keywords: ["Diljith", "Flutter Developer", "Full Stack Developer", "Portfolio", "AI Tools", "Vercel"],
   verification: {
     google: "BzTzpm3G00G8eFY34qGH8WbFb4reMfLNt0e1VpyMqek",
+  },
+  alternates: {
+    canonical: "https://diljithh.vercel.app",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
   },
   openGraph: {
     title: "Diljith — Developer Portfolio",
